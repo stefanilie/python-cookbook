@@ -54,4 +54,28 @@ class DataStructures:
 
         print(middle)
 
-## SECTION 1.3
+    ## SECTION 1.3
+        #You want to keep a limited history of the last few items seen during iteration or during some other kind of processing.
+    def section1_3(self):
+        from collections import deque
+
+        def search(lines, pattern, history):
+            #We're creating a queue...
+            previous_lines = deque(maxlen=history)
+            for line in lines:
+                if pattern in line:
+                    #...returning the lines containing the so called pattern, actually the keywork searched
+                    yield line, previous_lines
+                previous_lines.append(line)
+
+        #opening file
+        f = open('section1_3.txt')
+        #...and looking for the keyword
+        for line, prevLines in search(f, 'Python', 5):
+            #it first prints the lines before it
+            for pline in prevLines:
+                print(pline, end='')
+            #then the line containing the keyword
+            print(line, end='')
+            #then it highlights it
+            print('-'*20)
