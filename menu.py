@@ -11,7 +11,7 @@ class Menu:
         self.objInterface = Interface()
         self.intro = "Python Cookbook code examples"
         self.description = "\nThis code has been written while learning Python 3."
-        self.chapter = "\nPlease choose chapter. [1-15]:"
+        self.chapter = "\nPlease choose chapter. [1-15]: "
         self.section = "\nPlease choose section for "
         self.sectionTitles = [
             [

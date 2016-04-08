@@ -79,3 +79,21 @@ class DataStructures:
             print(line, end='')
             #then it highlights it
             print('-'*20)
+    ## SECTION 1.4
+        #You want to make a list of the largest or smallest N items in a collection.
+    def section1_4(self):
+        import heapq
+        nums = [1, 4, 2, 11, 53, 63, 77, 37, 84, 22, 3, 8, 5]
+        print("Largest 3 numbers for", str(nums), "are", heapq.nlargest(3, nums))
+        print("Smallest 3 numbers for", str(nums), "are", heapq.nsmallest(3, nums))
+
+        data =[
+            {'name': 'Aurelian Temisan', 'power': 200, 'nickname': '2peu'},
+            {'name': 'Daniel Iordachioaie', 'power': 300, 'nickname': 'my little pony'},
+            {'name': 'Cristi Minculescu', 'power': 5000, 'nickname': 'Ficatzel'},
+            {'name': 'Rudarel', 'power': 10000, 'nickname': 'Macarena'},
+            {'name': 'Nelu Vlad', 'power': 4500, 'nickname': 'Azur'},
+            {'name': 'Mihai Constantinescu', 'power': 400, 'nickname': 'Maidanezofilul'}
+        ]
+        print('Top 3 singers by power from this bunch', 'are', heapq.nlargest(3, data, key=lambda s: s['power']))
+        print('worst 3 singers by power from this bunch', 'are', heapq.nlargest(3, data, key=lambda s: s['power']))
