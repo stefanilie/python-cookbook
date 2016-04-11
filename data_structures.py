@@ -97,3 +97,36 @@ class DataStructures:
         ]
         print('Top 3 singers by power from this bunch', 'are', heapq.nlargest(3, data, key=lambda s: s['power']))
         print('worst 3 singers by power from this bunch', 'are', heapq.nlargest(3, data, key=lambda s: s['power']))
+
+    ## SECTION 1.5
+        #You want to implement a queue that sorts items by a given priority and always returns the item with the highest priority on each pop operation.
+    def section1_5(self):
+        import heapq
+
+        #Designing a class for the queue
+        class PriorityQueue:
+            def __init__(self):
+                self._queue = []
+                self._index = 0
+
+            #pusing in the queue, with negative priority so that we get the highest first.
+            def push(self, item, priority):
+                heapq.heappush(self._queue, (-priority, self._index, item))
+                self._index+=1
+
+            def pop(self):
+                return heapq.heappop(self._queue)[-1]
+
+        class Item:
+            def __init__(self, name):
+                self.name=name
+
+            def __repr__(self):
+                return 'Item({!r})'.format(self.name)
+
+        q=PriorityQueue()
+        q.push(Item('foo'), 1)
+        q.push(Item('bar'), 4)
+        q.push(Item('cry'), 3)
+        q.push(Item('grok'), 1)
+        print(q.pop())
