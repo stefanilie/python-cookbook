@@ -111,6 +111,9 @@ class DataStructures:
 
             #pusing in the queue, with negative priority so that we get the highest first.
             def push(self, item, priority):
+                #in the priority parameter of the heappush we will add a touple containing the reverse of the priority, the item itself and
+                #the index. We do that so that we can compare two instances that have the same item and the same priority.
+                #what will differenciate them will be the index.
                 heapq.heappush(self._queue, (-priority, self._index, item))
                 self._index+=1
 
@@ -130,3 +133,21 @@ class DataStructures:
         q.push(Item('cry'), 3)
         q.push(Item('grok'), 1)
         print(q.pop())
+
+    ## SECTION 1.6
+        #You want to make a dictionary that maps keys to more than one value (a so-called “multidict”).
+    def section1_6(self):
+        from collections import defaultdict
+
+        d = defaultdict(list)
+        d['a'].append(1)
+        d['a'].append(2)
+        d['b'].append(2)
+        print('d as a list: ', d)
+
+        d = defaultdict(set)
+        d['a'].add(1)
+        d['a'].add(2)
+        d['b'].add(1)
+
+        print('d as a set: ', d)
