@@ -151,3 +151,21 @@ class DataStructures:
         d['b'].add(1)
 
         print('d as a set: ', d)
+
+    ## SECTION 1.7
+        #You want to create a dictionary, and you also want to control the order of items when iterating or serializing.
+
+    def section1_7(self):
+        from collections import OrderedDict
+
+        d=OrderedDict()
+        d['foo']=1
+        d['bar']=2
+        d['span']=3
+        d['grok']=4
+
+        for key in d:
+            print(key, d[key])
+
+        import json
+        json.dumps(d)
