@@ -5,6 +5,16 @@ class DataStructures:
         strHello = "Hello, there!"
         print(strHello)
 
+    def print_method(self, begin, end):
+        is_ok = str(input('Do you wish to print the method?[y/n]:'))
+        if(is_ok[0]=='y'):
+            f = open("data_structures.py")
+            for i, line in enumerate(f):
+                if i>=begin and i<=end:
+                    print(line)
+            f.close()
+
+
     def section1_1(self):
         ## SECTION 1.1
         #You have an N-element tuple or sequence that you would like to unpack into a collection of N variables.
@@ -16,6 +26,7 @@ class DataStructures:
         t= (2, 'broth')
         _, r = t
         print(r)
+        self.print_method(17, 26)
 
     def section1_2(self):
         ## SECTION 1.2
@@ -53,6 +64,8 @@ class DataStructures:
         head, *middle, tail = items
 
         print(middle)
+        self.print_method(32, 65)
+
 
     ## SECTION 1.3
         #You want to keep a limited history of the last few items seen during iteration or during some other kind of processing.
@@ -79,6 +92,8 @@ class DataStructures:
             print(line, end='')
             #then it highlights it
             print('-'*20)
+        self.print_method(69, 93)
+
     ## SECTION 1.4
         #You want to make a list of the largest or smallest N items in a collection.
     def section1_4(self):
@@ -97,6 +112,8 @@ class DataStructures:
         ]
         print('Top 3 singers by power from this bunch', 'are', heapq.nlargest(3, data, key=lambda s: s['power']))
         print('worst 3 singers by power from this bunch', 'are', heapq.nlargest(3, data, key=lambda s: s['power']))
+
+        self.print_method(95, 115)
 
     ## SECTION 1.5
         #You want to implement a queue that sorts items by a given priority and always returns the item with the highest priority on each pop operation.
@@ -133,6 +150,8 @@ class DataStructures:
         q.push(Item('cry'), 3)
         q.push(Item('grok'), 1)
         print(q.pop())
+        self.print_method(117, 151)
+
 
     ## SECTION 1.6
         #You want to make a dictionary that maps keys to more than one value (a so-called “multidict”).
@@ -169,3 +188,22 @@ class DataStructures:
 
         import json
         json.dumps(d)
+        self.print_method(172, 189)
+
+
+    ## SECTION 1.8
+        #You want to perform various calculations (e.g., minimum value, maximum value, sort‐ ing, etc.) on a dictionary of data.
+    def section1_8(self):
+        prices = {'ACME': 45.23, 'AAPL': 612.78, 'IBM': 205.55, 'HPQ': 37.20, 'FB': 10.75}
+        min_price = min(zip(prices.values(), prices.keys()))
+        print(min_price)
+        #this outputs (10.75, 'FB')
+
+        max_price = max(zip(prices.values(), prices.keys()))
+        print(max_price)
+        #max_price is '612.78, 'AAPL'
+
+
+        price_sorted = sorted(zip(prices.values(), prices.keys()))
+        print(price_sorted)
+        self.print_method(193, 207)
